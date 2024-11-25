@@ -11,9 +11,18 @@
                         <a class="nav-link active" aria-current="page" href="./home.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./listeVehicules.php">Modfication Véhicules</a>
+                        <a class="nav-link" href="./listeVehicules.php">Modification Véhicules</a>
                     </li>
-                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="./listePersonne.php">Modification Utilisateur</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <form action="logout.php" method="POST" style="display: inline;">
+                            <button type="submit" name="deconnexion" class="btn btn-link nav-link" style="text-decoration: none;">Déconnexion</button>
+                        </form>
+                    </li>
+ 
                 </ul>
             </div>
         </div>

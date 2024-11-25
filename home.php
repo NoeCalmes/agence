@@ -10,9 +10,24 @@
 </head>
 <body>
      <?php
-    include './header.html';
+    include './header.php';
+
+    session_start();
+    if (isset($_SESSION['login'])) {
+        echo "Vous êtes connecté en tant que : " . $_SESSION['login'];
+    } else {
+        echo "Aucune session utilisateur active.";
+    }
+    if (isset($_SESSION['message'])) {
+        echo "<script>alert('" . htmlspecialchars($_SESSION['message']) . "');</script>";
+        // Supprimer le message de la session pour éviter de l'afficher à chaque rafraîchissement de la page
+        unset($_SESSION['message']);
+    }
     ?> 
     
+    <div class="container mt-5">
+        <h1>Bienvenue sur la page d'accueil</h1>
+
      <h1 class="text-center mt-5">Bienvenue dans l'agence</h1>
     <img src="public/img/bienvenu.jpg" alt="" class="mx-auto d-block">
     

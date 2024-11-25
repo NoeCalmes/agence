@@ -1,4 +1,6 @@
 <?php
+session_start(); // Démarrer la session
+
 require_once './classes/Database.php';
 require_once './controllers/PersonneController.php';
 
@@ -13,7 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
     $motDePasse = $_POST['mot_de_passe'];
 
     try {
-        if ($controller->seConnecter($login, $motDePasse)) {
+        $personne = $controller->seConnecter($login, $motDePasse);
+        if ($personne) {
+            // Stocker les informations de l'utilisateur dans la session
+            $_SESSION['login'] = $login;
+            $_SESSION['message'] = "Bienvenue, $login";
+
             // Rediriger vers la page d'accueil après une connexion réussie
             header('Location: home.php');
             exit;

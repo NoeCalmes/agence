@@ -35,6 +35,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'supprimer' && isset($_GET['id
     header('Location: listeVehicules.php');
     exit;
 }
+
+include 'header.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -51,8 +53,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'supprimer' && isset($_GET['id
 
 <body class="container mt-5">
 
-    <?php
-    include './header.html'; ?>
+
 
     <h1 class="mt-5 mb-4">Liste des Véhicules Disponibles</h1>
 
